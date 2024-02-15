@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Risk Prediction</title>
+<style>
+        {
+            color: #f7cac9; 
+            font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Risk Prediction</h1>
+    <p>Enter your health information to get a prediction:</p>
+
+    <form method="POST" action="/predict">
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age"><br><br>
+
+        <label for="systolic">Systolic Blood Pressure:</label><br>
+        <input type="number" id="systolic" name="systolic"><br><br>
+
+        <label for="heart_rate">Heart Rate:</label><br>
+        <input type="number" id="heart_rate" name="heart_rate"><br><br>
+
+        <label for="diastolic">Diastolic Blood Pressure:</label><br>
+        <input type="number" id="diastolic" name="diastolic"><br><br>
+
+        <button type="submit">Predict Risk</button>
+    </form>
+
+    {% if prediction_text %}
+        <h2>Prediction:</h2>
+        <p>
+            <span class="soft-pink">Centre:</span> {{ prediction_text }}
+        </p>
+    {% endif %}
+</body>
+</html>
